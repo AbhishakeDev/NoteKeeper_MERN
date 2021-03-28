@@ -6,19 +6,26 @@ Open [https://rover-notes.netlify.app/](https://rover-notes.netlify.app/)
 
 Open [https://rover-notes.herokuapp.com/](https://rover-notes.herokuapp.com/)
 
+# This is a MERN stack app built using 
+
+### Node.js
+### ReactJS
+### Redux
+### MongoDB
+### Express
+### Heroku
+
+
+
 ///////Details of the old app////////////
+
+
+
+
+
 
 ## Deployed Version of the CRUD App ((old without OAuth and Custom Auth))
 ### Open [https://rover-notekeeper.netlify.app/](https://rover-notekeeper.netlify.app/)
-
-# This is a MERN stack app built using 
-
-## Node.js
-## ReactJS
-## Redux
-## MongoDB
-## Express
-## Heroku
 
 ## Find the Memories REST API at (old without OAuth and Custom Auth)
 ### Open [https://rover-note-keeper.herokuapp.com/notes](https://rover-note-keeper.herokuapp.com/notes)
