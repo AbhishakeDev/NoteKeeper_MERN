@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import noteRoutes from './routes/notes.js';
+import userRoutes from './routes/user.js';
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/notes', noteRoutes);
-
+app.use('/user', userRoutes);
 
 
 const CONNECTION_URL = 'mongodb+srv://abhishekt:abhishekt@cluster0.nfnec.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';

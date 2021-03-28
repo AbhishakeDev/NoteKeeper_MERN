@@ -3,7 +3,7 @@ import Notes from '../models/notes.js';
 
 export const getNotes = async (req, res) => {
     try {
-        const notes = await Notes.find();
+        const notes = await Notes.find({ creator: req.userId });
         console.log(notes);
         res.status(200).json(notes);
     }
@@ -13,8 +13,9 @@ export const getNotes = async (req, res) => {
 }
 
 export const createNote = async (req, res) => {
-    const note = req.body;
-
+    const data = req.body;
+    const note = { ...data, creator: req.userId };
+    console.log(note);
     const newNote = new Notes(note);
 
     try {

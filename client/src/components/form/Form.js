@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 
 
 const Form = ({ currentId, setCurrentId }) => {
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+
     const { isSubmitted } = useSelector((state) => state.submit);
     const note = useSelector(state => currentId ? state.notes.notes.find(note => note._id === currentId) : null)
     console.log(isSubmitted);
@@ -21,6 +23,7 @@ const Form = ({ currentId, setCurrentId }) => {
         if (currentId) {
             setNoteItem(note);
         }
+        setUser(JSON.parse(localStorage.getItem('profile')))
     }, [note])
 
     const { subject, message } = NoteItem;
@@ -58,9 +61,9 @@ const Form = ({ currentId, setCurrentId }) => {
 
     return (
         <Fragment>
-            {isSubmitted ? <Route><Redirect to='/' /></Route>
+            {isSubmitted ? <Route><Redirect to='/notes' /></Route>
                 :
-                <div className="add-notes">
+                <>{user ? <div className="add-notes">
                     <form onSubmit={onSubmit} className="note-form">
                         <div className="form-group">
                             <label htmlFor="subject">Subject</label>
@@ -71,6 +74,12 @@ const Form = ({ currentId, setCurrentId }) => {
                         <input type="submit" className="submit-btn" value="Add Note" />
                     </form>
                 </div>
+                    :
+                    <div className="notes">
+                        <div className="notes-wrapper">
+                            <h1 style={{ margin: ' 20px 10px', color: '#fff', textAlign: 'center' }}>Please {!user && 'sign in to'} add notes!</h1>
+                        </div>
+                    </div>}</>
             }</Fragment>
 
     )

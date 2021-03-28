@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const noteSchema = mongoose.Schema({
+    creator: String,
     subject: String,
     message: String,
     date: {

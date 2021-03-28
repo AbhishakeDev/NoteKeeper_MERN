@@ -1,8 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 import './App.css';
-import Footer from './components/layout/Footer';
-import Navbar from './components/layout/Navbar';
-import { Link, BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
 import Notes from './components/notes/Notes';
 import Form from './components/form/Form';
 import { getNotes } from './actions/notes';
@@ -16,36 +14,22 @@ const App = () => {
         dispatch(getNotes());
     }, [dispatch])
 
-    return (<Router>
+    return (<Fragment>
         {currentId ?
             <Fragment>
-                <div className="body-wrapper">
-                    <div className="container">
-                        <Navbar />
-                        <Form currentId={currentId} setCurrentId={setCurrentId} />
-                    </div>
-                </div>
-                <Footer />
+                <Form currentId={currentId} setCurrentId={setCurrentId} />
             </Fragment>
             :
-
-
             <Fragment>
-                <div className="body-wrapper">
-                    <div className="container">
-                        <Link className="route-btn route-btn-1" to='/addnote'><i className="fas fa-plus"></i></Link>
-                        <Link className="route-btn route-btn-2" to='/'><i className="fas fa-eye"></i></Link>
-                        <Navbar />
-                        <Switch>
-                            <Route exact path='/addnote' component={() => <Form currentId={currentId} setCurrentId={setCurrentId} />} />
-                            <Route exact path='/' component={() => <Notes setCurrentId={setCurrentId} />} />
-                        </Switch>
-                    </div>
-                </div>
-                <Footer />
+                <Link className="route-btn route-btn-1" to='/addnote'><i className="fas fa-plus"></i></Link>
+                <Link className="route-btn route-btn-2" to='/notes'><i className="fas fa-eye"></i></Link>
+                <Switch>
+                    <Route exact path='/addnote' component={() => <Form currentId={currentId} setCurrentId={setCurrentId} />} />
+                    <Route exact path='/notes' component={() => <Notes setCurrentId={setCurrentId} />} />
+                </Switch>
             </Fragment>
-        }
-    </Router >);
+        }</Fragment>
+    );
 }
 
 export default App;

@@ -3,3 +3,5 @@ export const GET_NOTES = 'GET_NOTES';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
 export const MODIFY = 'MODIFY';
+export const LOGOUT = 'LOGOUT';
+export const AUTH = 'AUTH';

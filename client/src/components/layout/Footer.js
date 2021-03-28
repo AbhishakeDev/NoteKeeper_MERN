@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="copyright">
-                <p>Created By Abhishek &copy; All Rights Reserved</p>
+                <p>Created With ❤️ By Abhishek</p>
             </div>
             <div className="social-media">
                 <a target="_blank" style={{ color: '#fff' }} href="https://www.facebook.com/tyler.jake1181/"><i className="fab fa-facebook-square"></i></a>
